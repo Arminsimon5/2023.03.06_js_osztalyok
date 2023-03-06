@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feladat3</title>
+</head>
+
+<body>
+    <h1>Feladat3</h1>
+    <form onsubmit="hozzaad(event)">
+        <div class="mb-3">
+            <label for="input_nev" class="form-label">Név:</label>
+            <input type="text" id="input_nev" name="nev" class="form-control" placeholder="Név" min="1" required>
+        </div>
+        <div class="mb-3">
+            <label for="input_ar" class="form-label">ar:</label>
+            <input type="text" id="input_ar" name="ar" class="form-control" placeholder="ar" min="1" required>
+        </div>
+        <div class="mb-3">
+            <label for="input_kategoria" class="form-label">kategoria:</label>
+            <input type="text" id="input_kategoria" name="kategoria" class="form-control" placeholder="kategoria" min="1" required>
+        </div>
+        <div class="mb-3">
+            <label for="input_osszetevok" class="form-label">osszetevok:</label>
+            <input type="text" id="input_osszetevok" name="osszetevok" class="form-control" placeholder="osszetevok" min="1" required>
+        </div>
+        <button type="submit">Hozzaad</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Név</th>
+                    <th>Ár</th>
+                    <th>Kategória</th>
+                    <th>Összetevők</th>
+                </tr>
+            </thead>
+            <tbody id="tablazat">
+    
+            </tbody>
+        </table>
+    
+    <script>
+        etelek = [];
+
+        function hozzaad(e) {
+            e.preventDefault();
+            const input_nev = document.getElementById("input.nev");
+            const input_ar = document.getElementById("input.ar");
+            const input_kategoria = document.getElementById("input.kategoria");
+            const input_osszetevo = document.getElementById("input.osszetevo");
+            const tablazat = document.getElementById("tablazat")
+
+            const nev = input_nev.value;
+            const ar = input_ar.value;
+            const kategoria = input_kategoria.value;
+            const osszetevo = input_osszetevo.value;
+            const etel = new Etel(nev,ar,kategoria,osszetevo);
+
+            etelek.push(etel);
+            tablazat.innerHTML += etel.toString(); 
+        }
+    </script>
+</body>
+</html>
